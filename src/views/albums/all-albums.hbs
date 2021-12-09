@@ -1,0 +1,33 @@
+<div class="row">
+    {{#each albums}}
+    <div class="col-md-3">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title d-flex justify-content-between align-items-center">
+                    {{name}} <a href="/albums/edit/{{_id}}"><i class="fas fa-edit"></i></a>
+                </h4>
+                <p class="card-text">
+                    {{description}}
+                </p>
+                <div class="d-flex">
+                <form action="/albums/delete/{{_id}}?_method=DELETE" method="POST">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button type="submit" class="btn btn-danger btn-block btn-sm">Delete</button>
+                </form>
+                <form action="/photos/{{albumId}}?_method=GET" method="GET">
+                    <input type="hidden" name="_method" value="GET">
+                    <button type="submit" class="btn btn-primary btn-block btn-sm ml-2">Ver Photos</button>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{else}}
+    <div class="card mx-auto">
+        <div class="card-body">
+            <p class="lead">There are not albums yet.</p>
+            <a href="/albums/add" class="btn btn-success btn-block">Create One</a>
+        </div>
+    </div>
+    {{/each}}
+</div>

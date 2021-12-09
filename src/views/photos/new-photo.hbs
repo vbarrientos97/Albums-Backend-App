@@ -1,0 +1,30 @@
+<div class="col-md-4 mx-auto">
+    <div class="card">
+        <div class="card-header">
+            <h2 class="card-title">New Photo</h2>
+        </div>
+        <div class="card-body">
+            <form action="/photos/new-photo" method="POST">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="name" class="form-control" autofocus>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea name="description" id="description" class="form-control"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="albumId">Album Id</label>
+                    <input type="number" name="albumId" id="albumId" class="form-control" min="1" max="100">
+                </div>
+                <div class="form-group">
+                    <Label for="photoUrl">Photo</Label>
+                    <input type="text" name="photoUrl" id="photoUrl" class="form-control">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Create Photo</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

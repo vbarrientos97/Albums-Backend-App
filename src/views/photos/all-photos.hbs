@@ -1,0 +1,47 @@
+<div class="row">
+    {{#each photos}}
+    <div class="col-md-3">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title d-flex justify-content-between align-items-center">
+                    {{name}} <a href="/photos/edit/{{_id}}"><i class="fas fa-edit"></i></a>
+                </h4>
+                <p class="card-text">
+                    {{description}}
+                </p>
+                <div>
+                    <img src="{{photoUrl}}" alt="{{name}}" class="img-fluid mb-2">
+                </div>
+                <div>
+                    <a class="btn mb-4" data-toggle="modal" href="#myModal">See Photo</a>
+                    <div class="modal-content">
+                        <div class="modal hide mx-auto" id="myModal">
+                            <div class="modal-header">
+                                <button class="close" data-dismiss="modal">×</button>
+                                <h3>Modal header</h3>
+                            </div>
+                            <div class="modal-body">
+                                <div class="mx-auto" style="width: 700px;">
+                                    <p style="color: beige;">{{description}}</p>
+                                    <img src="{{photoUrl}}" alt="{{name}}" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                    </div>                
+                </div>
+                <form action="/photos/delete/{{_id}}?_method=DELETE" method="POST">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button type="submit" class="btn btn-danger btn-block btn-sm">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{else}}
+    <div class="card mx-auto">
+        <div class="card-body">
+            <p class="lead">There are not photos yet.</p>
+            <a href="/photos/add" class="btn btn-success btn-block">Create One</a>
+        </div>
+    </div>
+    {{/each}}
+</div>
